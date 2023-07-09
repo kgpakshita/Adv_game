@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Adventure Game</title>
+    <style>
+        /* Add some basic styling to the page */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Text Adventure Game</h1>
+        <p>Welcome to the text adventure game! Enter your name and start the adventure.</p>
+
+        <label for="name-input">Enter your name:</label>
+        <input type="text" id="name-input" placeholder="Your name">
+
+        <button id="start-button">Start Game</button>
+
+        <div id="game-output"></div>
+    </div>
+
+    <script>
+        document.getElementById("start-button").addEventListener("click", startGame);
+
+        function startGame() {
+            // Get the player's name
+            var playerName = document.getElementById("name-input").value;
+
+            // Update the game output
+            var gameOutput = document.getElementById("game-output");
+            gameOutput.innerHTML = "<p>Welcome, " + playerName + "! Let's start the adventure.</p>";
+
+            // Add your game logic here
+            // ...
+
+        }
+    </script>
+</body>
+</html>
