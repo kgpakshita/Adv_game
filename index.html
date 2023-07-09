@@ -21,6 +21,15 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+        #game-output {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #game-output p {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -47,9 +56,36 @@
             var gameOutput = document.getElementById("game-output");
             gameOutput.innerHTML = "<p>Welcome, " + playerName + "! Let's start the adventure.</p>";
 
-            // Add your game logic here
-            // ...
+            // Game loop
+            var gameOver = false;
+            while (!gameOver) {
+                // Prompt the player for a choice
+                var choice = prompt("--- Menu ---\n1. Explore the cave\n2. Search for treasure\n3. Quit the game\nEnter your choice:");
 
+                // Process the player's choice
+                if (choice === "1") {
+                    gameOutput.innerHTML += "<p>You enter a dark cave. It's full of mysteries.</p>";
+                    var pathChoice = prompt("You see a fork in the path. Which way do you go?\n1. Take the left path\n2. Take the right path");
+                    if (pathChoice === "1") {
+                        gameOutput.innerHTML += "<p>You cautiously follow the left path.</p>";
+                        gameOutput.innerHTML += "<p>You stumble upon a hidden treasure chest!</p>";
+                    } else if (pathChoice === "2") {
+                        gameOutput.innerHTML += "<p>You decide to take the right path.</p>";
+                        gameOutput.innerHTML += "<p>The path leads you to a dead end. There's nothing here.</p>";
+                    } else {
+                        gameOutput.innerHTML += "<p>Invalid choice. You hesitate and decide not to proceed.</p>";
+                    }
+                } else if (choice === "2") {
+                    gameOutput.innerHTML += "<p>You search for treasure. What will you find?</p>";
+                    gameOutput.innerHTML += "<p>You dig deep into the ground and find an old chest!</p>";
+                    gameOutput.innerHTML += "<p>You open the chest and discover gold coins and a magical amulet.</p>";
+                } else if (choice === "3") {
+                    gameOutput.innerHTML += "<p>Quitting the game. Goodbye, " + playerName + "!</p>";
+                    gameOver = true;
+                } else {
+                    gameOutput.innerHTML += "<p>Invalid choice. Try again.</p>";
+                }
+            }
         }
     </script>
 </body>
