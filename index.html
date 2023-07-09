@@ -68,7 +68,13 @@
                     var pathChoice = prompt("You see a fork in the path. Which way do you go?\n1. Take the left path\n2. Take the right path");
                     if (pathChoice === "1") {
                         gameOutput.innerHTML += "<p>You cautiously follow the left path.</p>";
-                        gameOutput.innerHTML += "<p>You stumble upon a hidden treasure chest!</p>";
+                        var treasureChoice = prompt("You stumble upon a hidden treasure chest! What will you do?\n1. Open the chest\n2. Leave it");
+                        if (treasureChoice === "1") {
+                            gameOutput.innerHTML += "<p>You open the chest and find a magical sword!</p>";
+                            gameOutput.innerHTML += "<p>You feel a surge of power as you wield the sword.</p>";
+                        } else {
+                            gameOutput.innerHTML += "<p>You decide to leave the chest behind and continue exploring.</p>";
+                        }
                     } else if (pathChoice === "2") {
                         gameOutput.innerHTML += "<p>You decide to take the right path.</p>";
                         gameOutput.innerHTML += "<p>The path leads you to a dead end. There's nothing here.</p>";
@@ -78,7 +84,14 @@
                 } else if (choice === "2") {
                     gameOutput.innerHTML += "<p>You search for treasure. What will you find?</p>";
                     gameOutput.innerHTML += "<p>You dig deep into the ground and find an old chest!</p>";
-                    gameOutput.innerHTML += "<p>You open the chest and discover gold coins and a magical amulet.</p>";
+                    var chestChoice = prompt("You open the chest and discover gold coins and a valuable gem. What will you do?\n1. Take everything\n2. Take only the gem");
+                    if (chestChoice === "1") {
+                        gameOutput.innerHTML += "<p>You take the gold coins and the gem. Your pockets feel heavy with wealth.</p>";
+                    } else if (chestChoice === "2") {
+                        gameOutput.innerHTML += "<p>You take only the gem and leave the gold coins behind.</p>";
+                    } else {
+                        gameOutput.innerHTML += "<p>Invalid choice. You decide to leave the chest untouched.</p>";
+                    }
                 } else if (choice === "3") {
                     gameOutput.innerHTML += "<p>Quitting the game. Goodbye, " + playerName + "!</p>";
                     gameOver = true;
